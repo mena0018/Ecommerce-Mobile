@@ -1,6 +1,6 @@
 import React from 'react';
-import Title from './src/components/Title';
+import View from './src/components/View';
 
 export default function App() {
-  return <Title text="E-commerce" />;
+  return <View />;
 }
