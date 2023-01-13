@@ -4,7 +4,7 @@ import Constants from 'expo-constants';
 
 function Title({ text }) {
   return (
-    <View style={styles.title_container}>
+    <View style={styles.titleContainer}>
       <Text style={styles.title}>{text}</Text>
     </View>
   );
@@ -13,7 +13,7 @@ function Title({ text }) {
 export default Title;
 
 const styles = StyleSheet.create({
-  title_container: {
+  titleContainer: {
     width: '100%',
     backgroundColor: 'royalblue',
     fontSize: 35,
