@@ -8,7 +8,7 @@ function Quantity({ quantity = 5, onUpdate }) {
         <Text style={styles.btnText}>+</Text>
       </Pressable>
 
-      <Text>{quantity}</Text>
+      <Text style={styles.text}>{quantity}</Text>
 
       <Pressable style={styles.button} onPress={onUpdate}>
         <Text style={styles.btnText}>-</Text>
@@ -21,16 +21,16 @@ export default Quantity;
 
 const styles = StyleSheet.create({
   quantityContainer: {
-    gap: 5,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+    width: 150,
   },
   button: {
     alignItems: 'center',
     justifyContent: 'center',
     paddingVertical: 5,
-    paddingHorizontal: 32,
+    paddingHorizontal: 25,
     borderRadius: 4,
     elevation: 3,
     backgroundColor: 'royalblue',
@@ -40,5 +40,8 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     color: 'white',
+  },
+  text: {
+    marginHorizontal: 5,
   },
 });
