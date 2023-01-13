@@ -5,13 +5,13 @@ function Quantity({ quantity = 5, onUpdate }) {
   return (
     <View style={styles.quantityContainer}>
       <Pressable style={styles.button} onPress={onUpdate}>
-        <Text style={styles.btnText}>+</Text>
+        <Text style={styles.btnText}>-</Text>
       </Pressable>
 
       <Text style={styles.text}>{quantity}</Text>
 
       <Pressable style={styles.button} onPress={onUpdate}>
-        <Text style={styles.btnText}>-</Text>
+        <Text style={styles.btnText}>+</Text>
       </Pressable>
     </View>
   );

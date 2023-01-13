@@ -1,19 +1,19 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useReducer } from 'react';
 import { getArticles, getCart } from '../services/api';
+import reducer, { defaultState } from '../store/store';
 
-function useArticles() {
-  const [articles, setArticles] = useState([]);
-  const [cart, setCart] = useState([]);
+export default function useArticles() {
+  const [state, dispatch] = useReducer(reducer, defaultState);
 
   useEffect(() => {
-    getArticles().then((data) => setArticles(data));
-    getCart().then((data) => setCart(data));
+    getArticles().then((articles) =>
+      dispatch({ type: 'SET_ARTICLES', articles })
+    );
+    getCart().then((cart) => dispatch({ type: 'SET_CART', cart }));
   }, []);
 
   return {
-    articles,
-    cart,
+    state,
+    dispatch,
   };
 }
-
-export default useArticles;
