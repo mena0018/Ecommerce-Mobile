@@ -1,19 +1,11 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
+import useQuantity from '../../hooks/useQuantity';
 import { URL } from '../../services/api';
 import Quantity from '../Quantity';
-import Context from '../../context';
 
 function Article({ article }) {
-  const {
-    state: { cart },
-    dispatch,
-  } = useContext(Context);
-
-  const quantity = cart[article.id] ? cart[article.id].quantity : 0;
-
-  const onUpdate = (newQuantity) =>
-    dispatch({ type: 'UPDATE_QUANTITY', article, newQuantity });
+  const { quantity, onUpdate } = useQuantity(article);
 
   return (
     <View style={[styles.container, styles.shadowProp]}>
