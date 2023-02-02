@@ -1,30 +1,25 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-return-assign */
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Context from '../context';
 
 function Footer() {
-  const [count, setCount] = useState(0);
-  const [total, setTotal] = useState(0);
-
   const {
     state: { cart },
   } = useContext(Context);
 
-  useEffect(() => {
-    const total = Object.values(cart).reduce(
-      (acc, article) => (acc += article.prix * article.quantity),
-      0
-    );
+  const total = Object.values(cart).reduce(
+    (acc, article) => (acc += article.prix * article.quantity),
+    0
+  );
 
-    const totalFormat = new Intl.NumberFormat('fr-FR').format(total);
-    setTotal(totalFormat);
+  const totalFormat = new Intl.NumberFormat('fr-FR').format(total);
 
-    setCount(
-      Object.values(cart).reduce((acc, article) => (acc += article.quantity), 0)
-    );
-  }, [cart]);
+  const count = Object.values(cart).reduce(
+    (acc, article) => (acc += article.quantity),
+    0
+  );
 
   return (
     <View style={styles.container}>
@@ -34,7 +29,7 @@ function Footer() {
       </Text>
       <Text style={styles.space}>
         <Text style={styles.span}>Prix total: </Text>
-        <Text style={styles.text}>{total} €</Text>
+        <Text style={styles.text}>{totalFormat} €</Text>
       </Text>
     </View>
   );
