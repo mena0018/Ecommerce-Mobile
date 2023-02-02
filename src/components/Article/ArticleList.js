@@ -5,11 +5,11 @@ import Context from '../../context';
 
 function ArticleList() {
   const {
-    state: { cart, articles },
+    state: { articles },
   } = useContext(Context);
 
   const articlesList = articles.map((article) => (
-    <Article key={article.id} article={article} cart={cart[article.id]} />
+    <Article key={article.id} article={article} />
   ));
 
   return <ScrollView style={styles.container}>{articlesList}</ScrollView>;

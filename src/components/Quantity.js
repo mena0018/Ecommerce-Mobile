@@ -1,16 +1,20 @@
 import React from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
-function Quantity({ quantity = 5, onUpdate }) {
+function Quantity({ quantity, onUpdate }) {
   return (
     <View style={styles.quantityContainer}>
-      <Pressable style={styles.button} onPress={onUpdate}>
+      <Pressable
+        style={styles.button}
+        onPress={() => onUpdate(quantity - 1)}
+        disabled={quantity <= 0}
+      >
         <Text style={styles.btnText}>-</Text>
       </Pressable>
 
       <Text style={styles.text}>{quantity}</Text>
 
-      <Pressable style={styles.button} onPress={onUpdate}>
+      <Pressable style={styles.button} onPress={() => onUpdate(quantity + 1)}>
         <Text style={styles.btnText}>+</Text>
       </Pressable>
     </View>

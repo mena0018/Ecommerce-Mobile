@@ -1,26 +1,20 @@
 export const defaultState = {
-  cart: {},
   articles: [],
+  cart: {},
 };
 
 export default function reducer(state, action) {
   switch (action.type) {
-    case 'INCREMENT': {
+    case 'UPDATE_QUANTITY': {
       return {
         ...state,
         cart: {
           ...state.cart,
-          quantity: state.cart.quantity - 1,
-        },
-      };
-    }
-
-    case 'DECREMENT': {
-      return {
-        ...state,
-        cart: {
-          ...state.cart,
-          quantity: state.cart.quantity - 1,
+          [action.article.id]: {
+            id: action.article.id,
+            prix: action.article.prix,
+            quantity: action.newQuantity,
+          },
         },
       };
     }

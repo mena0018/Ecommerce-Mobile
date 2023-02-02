@@ -1,9 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
 import { URL } from '../../services/api';
 import Quantity from '../Quantity';
+import Context from '../../context';
 
-function Article({ article, cart }) {
+function Article({ article }) {
+  const {
+    state: { cart },
+    dispatch,
+  } = useContext(Context);
+
+  const quantity = cart[article.id] ? cart[article.id].quantity : 0;
+
+  const onUpdate = (newQuantity) =>
+    dispatch({ type: 'UPDATE_QUANTITY', article, newQuantity });
+
   return (
     <View style={[styles.container, styles.shadowProp]}>
       <View style={styles.description}>
@@ -15,7 +26,8 @@ function Article({ article, cart }) {
           <Text style={styles.span}>Prix :</Text>
           <Text> {article.prix}€</Text>
         </Text>
-        <Quantity quantity={cart ? cart.quantity : 0} />
+
+        <Quantity quantity={quantity} onUpdate={onUpdate} />
       </View>
 
       <View>
