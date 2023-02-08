@@ -1,15 +1,10 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
 import Article from './Article';
-import Context from '../../context';
 
-function ArticleList() {
-  const {
-    state: { articles },
-  } = useContext(Context);
-
+function ArticleList({ articles, cart }) {
   const articlesList = articles.map((article) => (
-    <Article key={article.id} article={article} />
+    <Article key={article.id} article={article} inCart={cart[article.id]} />
   ));
 
   return <ScrollView style={styles.container}>{articlesList}</ScrollView>;

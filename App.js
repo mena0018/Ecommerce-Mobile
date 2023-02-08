@@ -1,10 +1,10 @@
 import React, { useMemo } from 'react';
 import { StyleSheet, View } from 'react-native';
 import useArticles from './src/hooks/useArticles';
-import ArticleList from './src/components/Article/ArticleList';
 import Footer from './src/components/Footer';
 import Title from './src/components/Title';
 import Context from './src/context';
+import ArticleView from './src/components/ArticleView';
 
 export default function App() {
   const { state, dispatch } = useArticles();
@@ -20,7 +20,7 @@ export default function App() {
     <Context.Provider value={value}>
       <View style={styles.container}>
         <Title text="E-commerce" />
-        <ArticleList />
+        <ArticleView />
         <Footer />
       </View>
     </Context.Provider>

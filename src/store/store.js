@@ -5,18 +5,19 @@ export const defaultState = {
 
 export default function reducer(state, action) {
   switch (action.type) {
-    case 'UPDATE_QUANTITY': {
-      return {
-        ...state,
-        cart: {
-          ...state.cart,
-          [action.article.id]: {
-            id: action.article.id,
-            prix: action.article.prix,
-            quantity: action.newQuantity,
-          },
-        },
-      };
+    case 'SET_ARTICLE': {
+      const { newArticle } = action;
+      const newCart = { ...state.cart, [newArticle.id]: newArticle };
+
+      return { ...state, cart: newCart };
+    }
+
+    case 'DELETE_ARTICLE': {
+      const { id } = action.newArticle;
+      const newCart = { ...state.cart };
+      delete newCart[id];
+
+      return { ...state, cart: newCart };
     }
 
     case 'SET_ARTICLES': {

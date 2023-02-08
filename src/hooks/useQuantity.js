@@ -1,21 +1,32 @@
 import { useContext } from 'react';
 import Context from '../context';
-import { addArticle } from '../services/api';
+import { addArticle, deleteArticle, updateArticle } from '../services/api';
 
-export default function useQuantity(article) {
-  const {
-    state: { cart },
-    dispatch,
-  } = useContext(Context);
+export default function useQuantity(article, inCart) {
+  const { dispatch } = useContext(Context);
 
-  const quantity = cart[article.id] ? cart[article.id].quantity : 0;
+  const quantity = inCart ? inCart.quantity : 0;
 
   const onUpdate = (newQuantity) => {
-    const newArticle = { ...article, quantity: newQuantity };
+    const newArticle = {
+      id: article.id,
+      prix: article.prix,
+      quantity: newQuantity,
+    };
 
-    addArticle(newArticle).then(() =>
-      dispatch({ type: 'UPDATE_QUANTITY', article, newQuantity })
-    );
+    if (!inCart) {
+      addArticle(newArticle).then(() =>
+        dispatch({ type: 'SET_ARTICLE', newArticle })
+      );
+    } else if (newQuantity === 0) {
+      deleteArticle(newArticle).then(() =>
+        dispatch({ type: 'DELETE_ARTICLE', newArticle })
+      );
+    } else {
+      updateArticle(newArticle).then(() =>
+        dispatch({ type: 'SET_ARTICLE', newArticle })
+      );
+    }
   };
 
   return { quantity, onUpdate };

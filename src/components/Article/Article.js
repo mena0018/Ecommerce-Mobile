@@ -4,8 +4,8 @@ import useQuantity from '../../hooks/useQuantity';
 import { URL } from '../../services/api';
 import Quantity from '../Quantity';
 
-function Article({ article }) {
-  const { quantity, onUpdate } = useQuantity(article);
+function Article({ article, inCart }) {
+  const { quantity, onUpdate } = useQuantity(article, inCart);
 
   return (
     <View style={[styles.container, styles.shadowProp]}>
