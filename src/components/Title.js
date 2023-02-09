@@ -1,12 +1,15 @@
 import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import Constants from 'expo-constants';
+import { Link } from 'react-router-native';
 
 function Title({ text }) {
   return (
-    <View style={styles.titleContainer}>
-      <Text style={styles.title}>{text}</Text>
-    </View>
+    <Link to="/">
+      <View style={styles.titleContainer}>
+        <Text style={styles.title}>{text}</Text>
+      </View>
+    </Link>
   );
 }
 

@@ -2,6 +2,7 @@
 /* eslint-disable no-return-assign */
 import React, { useContext } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { Link } from 'react-router-native';
 import Context from '../context';
 
 function Footer() {
@@ -22,16 +23,18 @@ function Footer() {
   );
 
   return (
-    <View style={styles.container}>
-      <Text>
-        <Text style={styles.span}>Quantité: </Text>
-        <Text style={styles.text}>{count}</Text>
-      </Text>
-      <Text style={styles.space}>
-        <Text style={styles.span}>Prix total: </Text>
-        <Text style={styles.text}>{totalFormat} €</Text>
-      </Text>
-    </View>
+    <Link to="/cart">
+      <View style={styles.container}>
+        <Text>
+          <Text style={styles.span}>Quantité: </Text>
+          <Text style={styles.text}>{count}</Text>
+        </Text>
+        <Text style={styles.space}>
+          <Text style={styles.span}>Prix total: </Text>
+          <Text style={styles.text}>{totalFormat} €</Text>
+        </Text>
+      </View>
+    </Link>
   );
 }
 
