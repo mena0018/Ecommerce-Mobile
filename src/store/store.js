@@ -28,6 +28,10 @@ export default function reducer(state, action) {
       return { ...state, cart: action.cart };
     }
 
+    case 'RESET_CART': {
+      return { ...state, cart: {} };
+    }
+
     default:
       return state;
   }
