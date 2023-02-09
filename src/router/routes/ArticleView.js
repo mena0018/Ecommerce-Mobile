@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import Context from '../context';
-import ArticleList from './Article/ArticleList';
+import ArticleList from '../../components/Article/ArticleList';
+import Context from '../../context';
 
 export default function ArticleView() {
   const {
