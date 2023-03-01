@@ -21,8 +21,8 @@ const updateArticle = (article) =>
     body: JSON.stringify(article),
   });
 
-const deleteArticle = (article) =>
-  fetch(`${URL}/panier/${article.id}`, {
+const deleteArticle = (id) =>
+  fetch(`${URL}/panier/${id}`, {
     method: 'DELETE',
   });
 

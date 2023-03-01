@@ -19,9 +19,9 @@ export default function CarteView() {
   };
 
   const resetCart = () => {
-    articles.map((article) =>
+    Object.keys(cart).map((id) =>
       setTimeout(() => {
-        deleteArticle(article).then(() => dispatch({ type: 'RESET_CART' }));
+        deleteArticle(id).then(() => dispatch({ type: 'RESET_CART' }));
       }, 500)
     );
   };

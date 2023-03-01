@@ -19,7 +19,7 @@ export default function useQuantity(article, inCart) {
         dispatch({ type: 'SET_ARTICLE', newArticle })
       );
     } else if (newQuantity === 0) {
-      deleteArticle(newArticle).then(() =>
+      deleteArticle(newArticle.id).then(() =>
         dispatch({ type: 'DELETE_ARTICLE', newArticle })
       );
     } else {
