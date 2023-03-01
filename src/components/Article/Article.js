@@ -10,14 +10,14 @@ function Article({ article, inCart }) {
   return (
     <View style={[styles.container, styles.shadowProp]}>
       <View style={styles.description}>
-        <Text>
+        <View>
           <Text style={styles.span}>Description :</Text>
           <Text> {article.description}</Text>
-        </Text>
-        <Text style={styles.prix}>
+        </View>
+        <View style={styles.prix}>
           <Text style={styles.span}>Prix :</Text>
           <Text> {article.prix}€</Text>
-        </Text>
+        </View>
 
         <Quantity quantity={quantity} onUpdate={onUpdate} />
       </View>

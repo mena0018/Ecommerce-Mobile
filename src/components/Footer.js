@@ -25,14 +25,14 @@ function Footer() {
   return (
     <Link to="/cart">
       <View style={styles.container}>
-        <Text>
+        <View>
           <Text style={styles.span}>Quantité: </Text>
           <Text style={styles.text}>{count}</Text>
-        </Text>
-        <Text style={styles.space}>
+        </View>
+        <View style={styles.space}>
           <Text style={styles.span}>Prix total: </Text>
           <Text style={styles.text}>{totalFormat} €</Text>
-        </Text>
+        </View>
       </View>
     </Link>
   );
