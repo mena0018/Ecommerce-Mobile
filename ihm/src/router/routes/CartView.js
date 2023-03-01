@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Button, View, StyleSheet } from 'react-native';
+import { Button, View, StyleSheet, Alert } from 'react-native';
 import ArticleList from '../../components/Article/ArticleList';
 import Context from '../../context';
 import { deleteArticle } from '../../services/api';
@@ -14,7 +14,7 @@ export default function CarteView() {
   const filtered = articles.filter((article) => cart[article.id]);
 
   const makeOrder = () => {
-    resetCart();
+    Alert.alert('Commande réalisé avec succès');
   };
 
   const resetCart = () => {

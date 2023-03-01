@@ -28,8 +28,16 @@ export default function App() {
           <Title text="E-commerce" />
 
           <Stack.Navigator initialRouteName="home">
-            <Stack.Screen name="home" component={ArticleView} />
-            <Stack.Screen name="cart" component={CartView} />
+            <Stack.Screen
+              name="home"
+              component={ArticleView}
+              options={{ title: 'Accueil' }}
+            />
+            <Stack.Screen
+              name="cart"
+              component={CartView}
+              options={{ title: 'Panier' }}
+            />
           </Stack.Navigator>
 
           <Footer />

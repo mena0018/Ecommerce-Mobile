@@ -14,7 +14,7 @@ export default ArticleList;
 
 const styles = StyleSheet.create({
   container: {
-    padding: 50,
+    padding: 10,
     flex: 1,
   },
 });

@@ -1,14 +1,12 @@
 import React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, StyleSheet } from 'react-native';
+import { Link } from '@react-navigation/native';
 import Constants from 'expo-constants';
-import { Link } from 'react-router-native';
 
 function Title({ text }) {
   return (
-    <Link to="/">
-      <View style={styles.titleContainer}>
-        <Text style={styles.title}>{text}</Text>
-      </View>
+    <Link to={{ screen: 'home' }} style={styles.titleContainer}>
+      <Text style={styles.title}>{text}</Text>
     </Link>
   );
 }
